@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add post</title>
+    <div th:replace="/fragments/header :: header-css"></div>
+</head>
+<body>
+    <div th:replace="/fragments/header :: header"></div>
+
+    <div class="container py-3">
+        <form th:action="@{/admin/add}" th:object="${post}" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="" th:field="*{title}">
+                <p class="help-block text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+            </div>
+            <div class="form-group">
+                <label for="shortDescription">ShortDescription</label>
+                <textarea class="form-control" id="shortDescription" rows="4" th:field="*{shortDescription}"></textarea>
+                <p class="help-block text-danger" th:if="${#fields.hasErrors('shortDescription')}" th:errors="*{shortDescription}"></p>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" id="content" rows="4" th:field="*{content}"></textarea>
+                <p class="help-block text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+
+    <footer th:replace="/fragments/footer :: footer"></footer>
+</body>
+</html>

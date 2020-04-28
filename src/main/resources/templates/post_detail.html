@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="/fragments/header :: header-css"></div>
+</head>
+<body>
+    <div th:replace="/fragments/header :: header"></div>
+
+    <div class="container py-3">
+        <div class="card">
+            <div class="card-body">
+                <b><h5 class="card-title" th:text="${post.title}"></h5></b>
+                <p class="card-text"><small class="text-muted" th:text="${post.createdDate}"></small> by <a href="#" th:text="${post.createdBy}"></a></p>
+                <p class="card-text" th:text="${post.shortDescription}"></p>
+                <p class="card-text" th:text="${post.content}"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="/fragments/footer :: footer"></footer>
+</body>
+</html>
