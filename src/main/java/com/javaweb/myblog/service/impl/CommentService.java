@@ -6,6 +6,8 @@ import com.javaweb.myblog.service.ICommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentService implements ICommentService {
 
@@ -15,5 +17,10 @@ public class CommentService implements ICommentService {
     @Override
     public CommentModel save(CommentModel commentModel) {
         return commentRepository.save(commentModel);
+    }
+
+    @Override
+    public List<CommentModel> findAllByPostId(Long postId) {
+        return commentRepository.findAllByPostId(postId);
     }
 }
